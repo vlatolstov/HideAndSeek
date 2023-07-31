@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33801.447
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HideAndSeek", "HideAndSeek.csproj", "{EEA54233-4AC2-49F0-9846-FE6D704A301E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HideAndSeekUnitTests", "..\HideAndSeekUnitTests\HideAndSeekUnitTests.csproj", "{A1476E92-B38A-4393-BD1A-C4018038F7D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEA54233-4AC2-49F0-9846-FE6D704A301E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA54233-4AC2-49F0-9846-FE6D704A301E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA54233-4AC2-49F0-9846-FE6D704A301E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA54233-4AC2-49F0-9846-FE6D704A301E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1476E92-B38A-4393-BD1A-C4018038F7D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1476E92-B38A-4393-BD1A-C4018038F7D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1476E92-B38A-4393-BD1A-C4018038F7D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1476E92-B38A-4393-BD1A-C4018038F7D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5AA29EB6-096D-431F-88DA-1FBD16E8ABEF}
+	EndGlobalSection
+EndGlobal
