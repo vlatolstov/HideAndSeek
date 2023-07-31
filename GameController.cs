@@ -14,7 +14,7 @@ namespace HideAndSeek
         {
             get
             {
-                string status = $"You are in the {CurrentLocation.Name}. Ypu see the following exits: ";
+                string status = $"You are in the {CurrentLocation.Name}. You see the following exits:";
                 foreach (string str in CurrentLocation.ExitList) status += Environment.NewLine + $" - {str}";
                 return status;
             }
@@ -29,12 +29,23 @@ namespace HideAndSeek
 
         public bool Move(Direction direction)
         {
-            return !(CurrentLocation.GetExit(direction) == CurrentLocation);
+            var startLocation = CurrentLocation;
+            CurrentLocation = CurrentLocation.GetExit(direction);
+            return startLocation != CurrentLocation;
         }
 
         public string ParseInput(string input)
         {
-            throw new NotImplementedException();
+            var result = "That's not a valid direction";
+            if (Enum.TryParse(typeof(Direction), input, out object direction))
+            {
+                if (Move((Direction)direction))
+                {
+                    result = $"Moving {direction}";
+                }
+                else result = "There's no exit in that direction";
+            }
+            return result;
         }
     }
 }
