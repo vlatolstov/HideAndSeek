@@ -9,7 +9,7 @@ namespace HideAndSeek
     public static class House
     {
         public static Location Entry { get; private set; }
-        private static IEnumerable<Location> locations;
+        public static IEnumerable<Location> Locations { get; private set; }
         public static Random Random = new();
 
         static House()
@@ -61,12 +61,12 @@ namespace HideAndSeek
             masterBedroom.AddExit(Direction.East, masterBath);
             locationsList.Add(masterBath);
 
-            locations = locationsList;
+            Locations = locationsList;
         }
 
         public static Location GetLocationByName(string name)
         {
-            var namedLocation = locations.Where(loc => loc.Name == name);
+            var namedLocation = Locations.Where(loc => loc.Name == name);
             if (!namedLocation.Any()) return Entry;
             else return namedLocation.First();
         }
@@ -78,7 +78,7 @@ namespace HideAndSeek
 
         public static void ClearHidingPlaces()
         {
-            var hidenPlaces = locations.Where(loc => loc.GetType() == typeof(LocationWithHidingPlace));
+            var hidenPlaces = Locations.Where(loc => loc.GetType() == typeof(LocationWithHidingPlace));
             foreach (LocationWithHidingPlace loc in hidenPlaces) loc.ClearLocation();
         }
     }

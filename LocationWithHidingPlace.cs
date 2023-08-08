@@ -11,24 +11,24 @@ namespace HideAndSeek
         public string HidingPlace;
         public LocationWithHidingPlace(string name, string hidingPlace) : base(name) => HidingPlace = hidingPlace;
 
-        private List<Opponent> listOfHiddenOponents = new();
+        public List<Opponent> ListOfHiddenOponents { get; private set; } = new();
 
-        public void Hide(Opponent opponent) => listOfHiddenOponents.Add(opponent);
+        public void Hide(Opponent opponent) => ListOfHiddenOponents.Add(opponent);
 
         public IEnumerable<Opponent> CheckHidingPlace()
         {
-            if (listOfHiddenOponents.Any())
+            if (ListOfHiddenOponents.Any())
             {
-                var founded = new List<Opponent>(listOfHiddenOponents);
-                listOfHiddenOponents.Clear();
+                var founded = new List<Opponent>(ListOfHiddenOponents);
+                ListOfHiddenOponents.Clear();
                 return founded;
             }
-            else return listOfHiddenOponents;
+            else return ListOfHiddenOponents;
         }
 
         public void ClearLocation()
         {
-            listOfHiddenOponents.Clear();
+            ListOfHiddenOponents.Clear();
         }
     }
 }

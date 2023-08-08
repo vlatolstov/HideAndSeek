@@ -19,9 +19,9 @@ namespace HideAndSeek
             new Opponent("Jimmy"),
         };
 
-        private readonly List<Opponent> foundOpponents = new();
+        public List<Opponent> FoundOpponents { get; private set; } = new();
 
-        public bool GameOver => Opponents.Count() == foundOpponents.Count();
+        public bool GameOver => Opponents.Count() == FoundOpponents.Count();
         public Location CurrentLocation { get; private set; }
 
         public string Status
@@ -34,9 +34,9 @@ namespace HideAndSeek
                 {
                     status += Environment.NewLine + $"Someone could hide {(CurrentLocation as LocationWithHidingPlace).HidingPlace}";
                 }
-                if (foundOpponents.Count > 0)
+                if (FoundOpponents.Count > 0)
                 {
-                    status += Environment.NewLine + $"You have found {foundOpponents.Count} of {Opponents.Count()} opponents: " + String.Join(", ", foundOpponents);
+                    status += Environment.NewLine + $"You have found {FoundOpponents.Count} of {Opponents.Count()} opponents: " + String.Join(", ", FoundOpponents);
                 }
                 return status;
             }
@@ -73,7 +73,7 @@ namespace HideAndSeek
                     if (opponentsHere.Count() == 0) return "Nobody was hiding behind the door";
                     if (opponentsHere.Count() > 1) s = "s";
                     Console.Beep();
-                    foundOpponents.AddRange(opponentsHere);
+                    FoundOpponents.AddRange(opponentsHere);
                     return $"You found {opponentsHere.Count()} opponent{s} hiding {(CurrentLocation as LocationWithHidingPlace).HidingPlace}";
                 }
                 else return $"There is no hiding place in the {CurrentLocation.Name}";
